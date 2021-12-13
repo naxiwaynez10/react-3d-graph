@@ -1,0 +1,6 @@
+{
+ :css-dirs   ["resources/public/css"]
+ :watch-dirs ["src/cljs"]
+ :ring-handler hubble.handler/handler
+ :open-url "http://[[server-hostname]]:[[server-port]]/org/cbs"
+ }

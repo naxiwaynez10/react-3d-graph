@@ -1,0 +1,250 @@
+{ :dependencies []
+ :jvm-opts ["-Xmx1G"]
+ :deps         true
+ :nrepl        {:port 9999}
+ :dev-http     {8060 "resources/public"}
+ :builds       {:dev         {:target           :browser
+                              :output-dir       "resources/public/js"
+                              :asset-path       "/js"
+                              :modules          {:main {:entries [hubble.core]}}
+                              :closure-defines  {hubble.config/app-url                         "https://dev.obrizum.io"
+                                                 ; uncomment this line when the obrio-api-dev Ions API Gateway
+                                                 ; URL mapping issue has been resolved. In the mean time, use the
+                                                 ; the URL that was automatically generated for the new API Gateway
+                                                 ; as part of the 884-9095 upgrade:
+                                                 ;hubble.config/api-url                         "https://api.obrizum.io/client-dev"
+                                                 hubble.config/api-url                         "https://y8bq8jakoc.execute-api.eu-west-1.amazonaws.com"
+                                                 hubble.config/branding-url                    "https://branding.obrizum.io"
+                                                 hubble.config/guide-url                       "https://api.obrizum.io/guide-dev"
+                                                 hubble.config/media-url                       "https://dev.obrizum.io/media"
+                                                 hubble.config/cdn-url                         "https://s3-eu-west-1.amazonaws.com/cdn-dev.obrizum"
+                                                 hubble.config/cdn-url2                        "https://cdn-dev.obrizum.io"
+                                                 hubble.config/customer-api-url                "https://api.obrizum.io/customer-dev/api"
+                                                 hubble.config/version                         "#BUILD_VERSION#"
+                                                 hubble.config/cke-upload-url                  "https://40608.cke-cs.com/easyimage/upload/"
+                                                 hubble.config/cke-web-socket-url              "40608.cke-cs.com/ws"
+                                                 hubble.config/virtual-room-url                "https://virtualroom.obrizum.io/bigbluebutton/api"
+                                                 hubble.config/i18n-url                        "https://i18n.obrizum.io"
+                                                 hubble.config/env                             "dev"
+                                                 hubble.config/user-pool-id                    "eu-west-1_nnAnGDhTE"
+                                                 hubble.config/user-pool-web-client-id         "sq3i7d53fve4peifv5ce1v8ef"
+                                                 hubble.config/cognito-domain                  "obrizumdev.auth.eu-west-1.amazoncognito.com"
+                                                 hubble.config/cms-url                         "http://localhost:3001"
+                                                 hubble.config/certificate-url                 "https://dev.obrizum.io/certificates"
+
+                                                 ;; appsync dev
+                                                 hubble.config/aws-appsync-graphql-endpoint    "https://u2ms4uuvhvh5ndkcynnjjyj47q.appsync-api.eu-west-1.amazonaws.com/graphql",
+                                                 hubble.config/aws-appsync-region              "eu-west-1",
+                                                 hubble.config/aws-appsync-authentication-type "AMAZON_COGNITO_USER_POOLS",
+                                                 hubble.config/aws-appsync-api-key             "da2-mwtzmavd7bbazd4uu3tey7xamq"
+                                                 hubble.config/paddle-vendor                   1738
+                                                 hubble.config/paddle-is-sandbox               true}
+                              :compiler-options {:warnings {:undeclared-var false}}
+                              :devtools         {:after-load hubble.core/re-render
+                                                 :preloads   [devtools.preload
+                                                              re-frisk.preload
+                                                              hubble.dev-preload]}}
+                :sbx         {:target           :browser
+                              :output-dir       "resources/public/js"
+                              :asset-path       "/js"
+                              :modules          {:main {:entries [hubble.core]}}
+                              :closure-defines  {hubble.config/app-url                         "https://sbx.obrizum.io"
+                                                 hubble.config/api-url                         "https://api.obrizum.io/client-sbx"
+                                                 hubble.config/branding-url                    "https://branding.obrizum.io"
+                                                 hubble.config/guide-url                       "https://api.obrizum.io/guide-dev"
+                                                 hubble.config/media-url                       "https://sbx.obrizum.io/media"
+                                                 hubble.config/cdn-url                         "https://s3-eu-west-1.amazonaws.com/cdn-dev.obrizum"
+                                                 hubble.config/cdn-url2                        "https://cdn-dev.obrizum.io"
+                                                 hubble.config/version                         "#BUILD_VERSION#"
+                                                 hubble.config/cke-upload-url                  "https://40608.cke-cs.com/easyimage/upload/"
+                                                 hubble.config/cke-web-socket-url              "40608.cke-cs.com/ws"
+                                                 hubble.config/virtual-room-url                "https://virtualroom.obrizum.io/bigbluebutton/api"
+                                                 hubble.config/i18n-url                        "https://i18n.obrizum.io"
+                                                 hubble.config/env                             "sbx"
+                                                 hubble.config/user-pool-id                    "eu-west-1_nnAnGDhTE"
+                                                 hubble.config/user-pool-web-client-id         "sq3i7d53fve4peifv5ce1v8ef"
+                                                 hubble.config/cognito-domain                  "obrizumdev.auth.eu-west-1.amazoncognito.com"
+                                                 hubble.config/cms-url                         "https://cms-ci.obrizum.io"
+                                                 hubble.config/certificate-url                 "https://sbx.obrizum.io/certificates"
+
+                                                 ;; appsync dev
+                                                 hubble.config/aws-appsync-graphql-endpoint    "https://u2ms4uuvhvh5ndkcynnjjyj47q.appsync-api.eu-west-1.amazonaws.com/graphql",
+                                                 hubble.config/aws-appsync-region              "eu-west-1",
+                                                 hubble.config/aws-appsync-authentication-type "AMAZON_COGNITO_USER_POOLS",
+                                                 hubble.config/aws-appsync-api-key             "da2-mwtzmavd7bbazd4uu3tey7xamq"
+                                                 hubble.config/paddle-vendor                   1738
+                                                 hubble.config/paddle-is-sandbox               true}
+                              :compiler-options {:warnings {:undeclared-var false}}
+                              :devtools         {:after-load hubble.core/re-render
+                                                 :preloads   [devtools.preload
+                                                              re-frisk.preload]}}
+                :local       {:target           :browser
+                              :output-dir       "resources/public/js"
+                              :asset-path       "/js"
+                              :modules          {:main {:entries [hubble.core]}}
+                              :compiler-options {:warnings {:undeclared-var false}}
+                              :closure-defines  {hubble.config/app-url                         "http://localhost:8060"
+                                                 hubble.config/api-url                         "http://localhost:8080"
+                                                 hubble.config/branding-url                    "https://branding.obrizum.io"
+                                                 hubble.config/guide-url                       "http://localhost:8086"
+                                                 hubble.config/media-url                       "https://media.obrizum.io/media"
+                                                 hubble.config/cdn-url                         "https://s3-eu-west-1.amazonaws.com/cdn-dev.obrizum"
+                                                 hubble.config/cdn-url2                        "https://cdn-dev.obrizum.io"
+                                                 hubble.config/customer-api-url                "http://localhost:3005/api"
+                                                 hubble.config/version                         "#BUILD_VERSION#"
+                                                 hubble.config/cke-upload-url                  "https://40608.cke-cs.com/easyimage/upload/"
+                                                 hubble.config/cke-web-socket-url              "40608.cke-cs.com/ws"
+                                                 hubble.config/virtual-room-url                "https://virtualroom.obrizum.io/bigbluebutton/api"
+                                                 hubble.config/i18n-url                        "https://i18n.obrizum.io"
+                                                 hubble.config/env                             "local"
+                                                 hubble.config/user-pool-id                    "eu-west-1_nnAnGDhTE"
+                                                 hubble.config/user-pool-web-client-id         "sq3i7d53fve4peifv5ce1v8ef"
+                                                 hubble.config/cognito-domain                  "obrizumdev.auth.eu-west-1.amazoncognito.com"
+                                                 hubble.config/cms-url                         "http://localhost:3001"
+                                                 hubble.config/certificate-url                 "https://dev.obrizum.io/certificates"
+
+                                                 ;; appsync dev
+                                                 hubble.config/aws-appsync-graphql-endpoint    "https://u2ms4uuvhvh5ndkcynnjjyj47q.appsync-api.eu-west-1.amazonaws.com/graphql",
+                                                 hubble.config/aws-appsync-region              "eu-west-1",
+                                                 hubble.config/aws-appsync-authentication-type "AMAZON_COGNITO_USER_POOLS",
+                                                 hubble.config/aws-appsync-api-key             "da2-mwtzmavd7bbazd4uu3tey7xamq"
+                                                 hubble.config/paddle-vendor                   1738
+                                                 hubble.config/paddle-is-sandbox               true}
+                              :devtools         {:after-load hubble.core/re-render
+                                                 :preloads   [devtools.preload
+                                                              re-frisk.preload
+                                                              hubble.dev-preload]}}
+                ;
+                :local-obrio {:target           :browser
+                              :output-dir       "resources/public/js"
+                              :asset-path       "/js"
+                              :modules          {:main {:entries [hubble.core]}}
+                              :compiler-options {:warnings {:undeclared-var false}}
+                              :closure-defines  {hubble.config/app-url                         "http://localhost:8060"
+                                                 hubble.config/api-url                         "http://localhost:8080"
+                                                 hubble.config/branding-url                    "https://branding.obrizum.io"
+                                                 hubble.config/guide-url                       "https://api.obrizum.io/guide-dev"
+                                                 hubble.config/media-url                       "https://media.obrizum.io/media"
+                                                 hubble.config/cdn-url                         "https://s3-eu-west-1.amazonaws.com/cdn-dev.obrizum"
+                                                 hubble.config/cdn-url2                        "https://cdn-dev.obrizum.io"
+                                                 hubble.config/version                         "#BUILD_VERSION#"
+                                                 hubble.config/cke-upload-url                  "https://40608.cke-cs.com/easyimage/upload/"
+                                                 hubble.config/cke-web-socket-url              "40608.cke-cs.com/ws"
+                                                 hubble.config/virtual-room-url                "https://virtualroom.obrizum.io/bigbluebutton/api"
+                                                 hubble.config/i18n-url                        "https://i18n.obrizum.io"
+                                                 hubble.config/env                             "local"
+                                                 hubble.config/user-pool-id                    "eu-west-1_nnAnGDhTE"
+                                                 hubble.config/user-pool-web-client-id         "sq3i7d53fve4peifv5ce1v8ef"
+                                                 hubble.config/cognito-domain                  "obrizumdev.auth.eu-west-1.amazoncognito.com"
+                                                 hubble.config/cms-url                         "http://localhost:3001"
+                                                 hubble.config/certificate-url                 "https://dev.obrizum.io/certificates"
+
+                                                 ;; appsync dev
+                                                 hubble.config/aws-appsync-graphql-endpoint    "https://u2ms4uuvhvh5ndkcynnjjyj47q.appsync-api.eu-west-1.amazonaws.com/graphql",
+                                                 hubble.config/aws-appsync-region              "eu-west-1",
+                                                 hubble.config/aws-appsync-authentication-type "AMAZON_COGNITO_USER_POOLS",
+                                                 hubble.config/aws-appsync-api-key             "da2-mwtzmavd7bbazd4uu3tey7xamq"
+                                                 hubble.config/paddle-vendor                   1738
+                                                 hubble.config/paddle-is-sandbox               true}
+                              :devtools         {:after-load hubble.core/re-render
+                                                 :preloads   [devtools.preload
+                                                              re-frisk.preload
+                                                              hubble.dev-preload]}}
+                :staging     {:target           :browser
+                              :output-dir       "resources/public/js"
+                              :asset-path       "/js"
+                              :modules          {:main {:entries [hubble.core]}}
+                              :compiler-options {:warnings {:undeclared-var false}}
+                              :closure-defines  {hubble.config/app-url                         "https://staging.obrizum.io"
+                                                 hubble.config/api-url                         "https://api.obrizum.io/client-stg"
+                                                 hubble.config/branding-url                    "https://branding.obrizum.io"
+                                                 hubble.config/guide-url                       "https://api.obrizum.io/guide"
+                                                 hubble.config/media-url                       "https://staging.obrizum.io/media"
+                                                 hubble.config/cdn-url                         "https://s3-eu-west-1.amazonaws.com/cdn.obrizum"
+                                                 hubble.config/cdn-url2                        "https://cdn-dev.obrizum.io"
+                                                 hubble.config/version                         "#BUILD_VERSION#"
+                                                 hubble.config/cke-upload-url                  "https://40608.cke-cs.com/easyimage/upload/"
+                                                 hubble.config/cke-web-socket-url              "40608.cke-cs.com/ws"
+                                                 hubble.config/virtual-room-url                "https://virtualroom.obrizum.io/bigbluebutton/api"
+                                                 hubble.config/i18n-url                        "https://i18n.obrizum.io"
+                                                 hubble.config/env                             "staging"
+                                                 hubble.config/user-pool-id                    "eu-west-1_c6dl1zxQu"
+                                                 hubble.config/user-pool-web-client-id         "5n35f25dkv276coh43h25qrle7"
+                                                 hubble.config/cognito-domain                  "obrizumdev.auth.eu-west-1.amazoncognito.com"
+                                                 hubble.config/cms-url                         "https://cms-ci.obrizum.io"
+                                                 hubble.config/certificate-url                 "https://staging.obrizum.io/certificates"
+
+                                                 ;; appsync prod
+                                                 hubble.config/aws-appsync-graphql-endpoint    "https://wcibhzzlyrf2tcyxof6lwka57m.appsync-api.eu-west-1.amazonaws.com/graphql",
+                                                 hubble.config/aws-appsync-region              "eu-west-1",
+                                                 hubble.config/aws-appsync-authentication-type "AMAZON_COGNITO_USER_POOLS",
+                                                 hubble.config/aws-appsync-api-key             "da2-bwcb6fd7gjadnb4w3sglhatsqu"
+                                                 hubble.config/paddle-vendor                   1738
+                                                 hubble.config/paddle-is-sandbox               true}}
+                :ci          {:target           :browser
+                              :output-dir       "resources/public/js"
+                              :asset-path       "/js"
+                              :modules          {:main {:entries [hubble.core]}}
+                              :compiler-options {:warnings {:undeclared-var false}}
+                              :closure-defines  {hubble.config/app-url                         "https://ci.obrizum.io"
+                                                 ; uncomment this line when the obrio-api-dev Ions API Gateway
+                                                 ; URL mapping issue has been resolved. In the mean time, use the
+                                                 ; the URL that was automatically generated for the new API Gateway
+                                                 ; as part of the 884-9095 upgrade:
+                                                 ;hubble.config/api-url                         "https://api.obrizum.io/client-dev"
+                                                 hubble.config/api-url                         "https://y8bq8jakoc.execute-api.eu-west-1.amazonaws.com"
+                                                 hubble.config/branding-url                    "https://branding.obrizum.io"
+                                                 hubble.config/guide-url                       "https://api.obrizum.io/guide-dev"
+                                                 hubble.config/media-url                       "https://ci.obrizum.io/media"
+                                                 hubble.config/cdn-url                         "https://s3-eu-west-1.amazonaws.com/cdn-dev.obrizum"
+                                                 hubble.config/cdn-url2                        "https://cdn-dev.obrizum.io"
+                                                 hubble.config/version                         "#BUILD_VERSION#"
+                                                 hubble.config/cke-upload-url                  "https://40608.cke-cs.com/easyimage/upload/"
+                                                 hubble.config/cke-web-socket-url              "40608.cke-cs.com/ws"
+                                                 hubble.config/virtual-room-url                "https://virtualroom.obrizum.io/bigbluebutton/api"
+                                                 hubble.config/i18n-url                        "https://i18n.obrizum.io"
+                                                 hubble.config/env                             "ci"
+                                                 hubble.config/user-pool-id                    "eu-west-1_nnAnGDhTE"
+                                                 hubble.config/user-pool-web-client-id         "sq3i7d53fve4peifv5ce1v8ef"
+                                                 hubble.config/cognito-domain                  "obrizumdev.auth.eu-west-1.amazoncognito.com"
+                                                 hubble.config/cms-url                         "https://cms-ci.obrizum.io"
+                                                 hubble.config/certificate-url                 "https://ci.obrizum.io/certificates"
+
+                                                 ;; appsync dev
+                                                 hubble.config/aws-appsync-graphql-endpoint    "https://u2ms4uuvhvh5ndkcynnjjyj47q.appsync-api.eu-west-1.amazonaws.com/graphql",
+                                                 hubble.config/aws-appsync-region              "eu-west-1",
+                                                 hubble.config/aws-appsync-authentication-type "AMAZON_COGNITO_USER_POOLS",
+                                                 hubble.config/aws-appsync-api-key             "da2-mwtzmavd7bbazd4uu3tey7xamq"
+                                                 hubble.config/paddle-vendor                   1738
+                                                 hubble.config/paddle-is-sandbox               true}}
+                :master      {:target           :browser
+                              :output-dir       "resources/public/js"
+                              :asset-path       "/js"
+                              :modules          {:main {:entries [hubble.core]}}
+                              :compiler-options {:warnings {:undeclared-var false}}
+                              :closure-defines  {hubble.config/app-url                         "https://obrizum.io"
+                                                 hubble.config/api-url                         "https://api.obrizum.io/client"
+                                                 hubble.config/branding-url                    "https://branding.obrizum.io"
+                                                 hubble.config/guide-url                       "https://api.obrizum.io/guide"
+                                                 hubble.config/media-url                       "https://obrizum.io/media"
+                                                 hubble.config/cdn-url                         "https://s3-eu-west-1.amazonaws.com/cdn.obrizum"
+                                                 hubble.config/cdn-url2                        "https://cdn.obrizum.io"
+                                                 hubble.config/version                         "#BUILD_VERSION#"
+                                                 hubble.config/cke-upload-url                  "https://40608.cke-cs.com/easyimage/upload/"
+                                                 hubble.config/cke-web-socket-url              "40608.cke-cs.com/ws"
+                                                 hubble.config/virtual-room-url                "https://virtualroom.obrizum.io/bigbluebutton/api"
+                                                 hubble.config/i18n-url                        "https://i18n.obrizum.io"
+                                                 hubble.config/env                             "master"
+                                                 hubble.config/user-pool-id                    "eu-west-1_c6dl1zxQu"
+                                                 hubble.config/user-pool-web-client-id         "5n35f25dkv276coh43h25qrle7"
+                                                 hubble.config/cognito-domain                  "obrizum.auth.eu-west-1.amazoncognito.com"
+                                                 hubble.config/cms-url                         "https://cms-ci.obrizum.io"
+                                                 hubble.config/certificate-url                 "https://obrizum.io/certificates"
+
+                                                 ;; appsync prod
+                                                 hubble.config/aws-appsync-graphql-endpoint    "https://wcibhzzlyrf2tcyxof6lwka57m.appsync-api.eu-west-1.amazonaws.com/graphql",
+                                                 hubble.config/aws-appsync-region              "eu-west-1",
+                                                 hubble.config/aws-appsync-authentication-type "AMAZON_COGNITO_USER_POOLS",
+                                                 hubble.config/aws-appsync-api-key             "da2-bwcb6fd7gjadnb4w3sglhatsqu"
+                                                 hubble.config/paddle-vendor                   122313
+                                                 hubble.config/paddle-is-sandbox               false}}}}

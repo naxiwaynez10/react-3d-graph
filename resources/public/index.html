@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Obrizum - The AI Learning Platform</title>
+    <!-- Google Analytics -->
+    <script>
+        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+        ga('create', '#ANALYTICS_KEY#', 'auto');
+
+        ga('require', 'eventTracker');
+        ga('require', 'cleanUrlTracker');
+        ga('require', 'impressionTracker');
+        ga('require', 'maxScrollTracker');
+        ga('require', 'mediaQueryTracker');
+        ga('require', 'outboundLinkTracker');
+        ga('require', 'pageVisibilityTracker');
+        ga('require', 'urlChangeTracker');
+
+        ga('send', 'pageview');
+
+    </script>
+    <!-- End Google Analytics -->
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <script async src="https://cdn.jsdelivr.net/npm/autotrack@2.4.1/autotrack.js"></script>
+
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/balloon-css@1.0.0/balloon.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.obrizum.io/css/re-com.css">
+    <link rel="stylesheet" type="text/css" href="/css/site.css">
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
+    <script src="https://unpkg.com/chartjs-plugin-colorschemes@latest/dist/chartjs-plugin-colorschemes.min.js"></script>
+    <script src="https://unpkg.com/chartjs-chart-box-and-violin-plot"></script>
+    <script src="https://unpkg.com/chartjs-subtitle@0.2.0/build/Plugin.Subtitle.min.js"></script>
+    <script src="https://unpkg.com/video.js/dist/video.js"></script>
+    <script src="https://unpkg.com/video.js@7.5.5/dist/video.js"></script>
+    <script src="https://unpkg.com/videojs-flash@2.2.0/dist/videojs-flash.js"></script>
+    <script src="https://unpkg.com/videojs-contrib-hls@5.15.0/dist/videojs-contrib-hls.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!--    AblePlayer-->
+    <script src="https://cdn.obrizum.io/vendor/ableplayer/thirdparty/js.cookie.js"></script>
+    <script src="https://cdn.obrizum.io/vendor/ableplayer/build/ableplayer.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.obrizum.io/vendor/ableplayer/build/ableplayer.min.css" type="text/css"/>
+    <!--    End AblePlayer-->
+
+
+    <link href="https://unpkg.com/video.js@7.5.5/dist/video-js.css" rel="stylesheet">
+    <!--    <script src="https://kit.fontawesome.com/88dce23645.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.1.266/pdf.worker.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/react-pdf@4.1.0/dist/Page/AnnotationLayer.css">
+    <script id="ze-snippet"
+            src="https://static.zdassets.com/ekr/snippet.js?key=2a267048-579e-4bc3-8ea8-997246e07657"></script>
+    <script src="https://cdn.paddle.com/paddle/paddle.js"></script>
+</head>
+<body>
+    <div id="transcript"></div>
+    <div id="app"></div>
+    <script src="https://unpkg.com/umap-js@1.3.1/lib/umap-js.min.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/cdn.obrizum/assets/js/ckeditor.js"></script>
+    <script src="/js/main.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/cdn.obrizum/vendor/jquery.ui.touch-punch-v0.2.3.min.js"></script>
+    <script src="https://cdn.obrizum.io/vendor/popper.min.js"></script>
+    <script src="https://cdn.obrizum.io/vendor/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/videojs-youtube@2.6.0/dist/Youtube.min.js"></script>
+    <script src="https://cdn.obrizum.io/assets/virtual-reality/tour.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.3.3/rangeslider.min.js" integrity="sha512-BUlWdwDeJo24GIubM+z40xcj/pjw7RuULBkxOTc+0L9BaGwZPwiwtbiSVzv31qR7TWx7bs6OPTE5IyfLOorboQ==" crossorigin="anonymous"></script>
+    <script> Chart.plugins.unregister(ChartDataLabels); </script>
+    <script>
+     var IE_incompatibility_page = '<div id="app"><div class="app-page min-vh-100 position-relative login-page screen-lg" id="app-page"><header class="header"><nav class="header__content navbar navbar-expand-sm" role="navigation"><div class="container d-flex justify-content-between"><a title="Company logo" class="navbar-brand" href="#"><img style="max-height: 45px;" alt="Company logo" src="https://s3-eu-west-1.amazonaws.com/assets.obrizum/orgs/2ab1c211-2afa-4335-9164-f91cf1d827c2/OBRIZUM_Line_Black_Full.png"></a><button class="navbar-toggler" role="navigation" aria-expanded="false" aria-controls="navbar-supported-content" aria-label="Main navigation bar (touch to expand)" type="button" data-toggle="collapse" data-target="#navbar-supported-content"><i class="fal fa-bars"></i></button><div class="collapse navbar-collapse" id="navbar-supported-content"><ul class="navbar-nav ml-auto"></ul></div></div></nav></header><div class="container mt75" role="main"><div class="row justify-content-center"><div class="col-sm-10 col-lg-8" style="max-width: 600px;"><div class="d-flex flex-column mb-4"><div class="alert alert-warning" style="padding: 10px 20px; margin: 6px;">The Obrizum E-Learning platform is incompatible with Internet Explorer, which is no longer supported by Microsoft.</div><div class="alert alert-info" style="min-height: 1px; padding: 10px 20px; margin: 6px;">Please use one of the following compatible browsers.<div class="container" ><div class="row justify-content-between"><a class="col-4 d-flex flex-column align-items-center justify-content-between btn btn-link" href="https://www.microsoft.com/en-us/edge" target="_blank"><img style="min-height: 1px; max-width: 150px;" src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/Microsoft_Edge_logo_(2019).svg/1200px-Microsoft_Edge_logo_(2019).svg.png">Microsoft Edge</a><a class="col-4 d-flex flex-column align-items-center justify-content-between btn btn-link" href="https://www.google.com/intl/en_uk/chrome/" target="_blank"><img style="min-height: 1px; max-width: 150px;" src="https://www.searchpng.com/wp-content/uploads/2019/02/Google-Chrome-Logo-Icon-PNG-715x715.png">Google Chrome</a><a class="col-4 d-flex flex-column align-items-center justify-content-between btn btn-link" href="https://www.mozilla.org/en-GB/firefox/new/" target="_blank"><img style="min-height: 1px; max-width: 150px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Firefox_logo,_2019.svg/1200px-Firefox_logo,_2019.svg.png">FireFox</a></div></div></div></div></div></div></div></div></div>';
+     var isIE = navigator.userAgent.indexOf('MSIE')!==-1 || navigator.appVersion.indexOf('Trident/') > -1;
+     function mount_IE_incompatibility_page () {
+         element = document.body;
+         element.innerHTML = IE_incompatibility_page;
+     };
+
+     if (isIE) {
+         mount_IE_incompatibility_page();
+     } else {
+         hubble.core.init();
+     }
+
+     // If browser is an Internet Explorer (up to Edge, exclusive), then present user with Internet Explorer incompatibility page.
+     // Don't leave comments above code, because IE8 contacenates it together, so everything behind a comment becomes a part of the comment...
+    </script>
+</body>
+</html>

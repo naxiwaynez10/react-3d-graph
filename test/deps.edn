@@ -1,0 +1,89 @@
+{:paths   ["src/cljs" "src/clj" "src/graphql" "resources" "target"]
+
+ :deps    {
+           org.clojure/clojure             {:mvn/version "1.10.1"}
+           org.clojure/core.async          {:mvn/version "1.2.603"}
+           org.clojure/core.match          {:mvn/version "1.0.0"}
+
+           com.taoensso/timbre             {:mvn/version "4.10.0"}
+
+           reagent/reagent                 {:mvn/version "0.8.0"}
+
+           re-frame/re-frame               {:mvn/version "0.10.2"}
+
+           cljs-http/cljs-http             {:mvn/version "0.1.46"}
+
+           breaking-point/breaking-point   {:mvn/version "0.1.2"}
+           binaryage/oops                  {:mvn/version "0.5.8"}
+
+           metosin/reitit                  {:mvn/version "0.3.5"}
+           com.andrewmcveigh/cljs-time     {:mvn/version "0.5.2"}
+           funcool/cuerdas                 {:mvn/version "2.2.0"}
+           funcool/promesa                 {:mvn/version "2.0.1"}
+           funcool/tubax                   {:mvn/version "0.2.0"}
+           re-com/re-com                   {:mvn/version "2.5.0"}
+           binaryage/devtools              {:mvn/version "0.9.10"}
+           re-frisk/re-frisk               {:mvn/version "1.3.5"}
+           thheller/shadow-cljs            {:mvn/version "2.11.1"}
+           day8.re-frame/async-flow-fx     {:mvn/version "0.1.0"}
+           akiroz.re-frame/storage         {:mvn/version "0.1.4"}
+           com.7theta/re-frame-fx          {:mvn/version "0.2.1"}
+           com.taoensso/tempura            {:mvn/version "1.2.1"}
+           district0x/re-frame-interval-fx {:mvn/version "1.0.2"}
+
+           ; we have moved to shadow-cljs which does not support cljsjs
+
+           ;com.bhauman/figwheel-main       {:mvn/version "0.1.9"}
+           ;com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}
+
+           ;cljsjs/react                    {:mvn/version "16.3.2-0"}
+           ;cljsjs/react-dom                {:mvn/version "16.3.2-0"}
+           ;cljsjs/react-transition-group   {:mvn/version "2.3.1-0"}
+           ;cljsjs/react-popper             {:mvn/version "0.10.4-0"}
+
+           re-chain/re-chain               {:mvn/version "1.2"}
+           garden/garden                   {:mvn/version "1.3.10"}
+           net.dhleong/spade               {:mvn/version "1.1.0"}
+           fork/fork                       {:mvn/version "2.4.1"}
+           vlad/vlad                       {:mvn/version "3.3.2"}
+           clj-statecharts/clj-statecharts {:mvn/version "0.1.0"}}
+
+ :aliases {:figwheel {:main-opts  ["-m" "figwheel.main" "-b" "build/local" "-r"]
+                      :extra-deps {re-frisk/re-frisk   {:mvn/version "0.5.3"}
+                                   compojure/compojure {:mvn/version "1.6.1"}
+                                   ring/ring-core      {:mvn/version "1.7.1"}}}
+
+           ; report incorrectly formatted code
+           :format   {:extra-deps {cljfmt/cljfmt {:mvn/version "0.6.4"}}
+                      :main-opts  ["-m" "cljfmt.main" "check" "--indents" "resources/indentation.edn"]}
+
+           ; format all code
+           :format!  {:extra-deps {cljfmt/cljfmt {:mvn/version "0.6.4"}}
+                      :main-opts  ["-m" "cljfmt.main" "fix" "--indents" "resources/indentation.edn"]}
+           ;; useful to test advanced optimisation locally
+           :min      {:main-opts  ["-m" "figwheel.main" "-b" "build/dev"]
+                      :extra-deps {compojure/compojure {:mvn/version "1.6.1"}
+                                   ring/ring-core      {:mvn/version "1.7.1"}}}
+           :ci       {:main-opts  ["-m" "figwheel.main" "--build-once" "build/ci"]
+                      :extra-deps {compojure/compojure {:mvn/version "1.6.1"}
+                                   ring/ring-core      {:mvn/version "1.7.1"}}}
+           :dev      {:main-opts  ["-m" "figwheel.main" "--build-once" "build/dev"]
+                      :extra-deps {compojure/compojure {:mvn/version "1.6.1"}
+                                   ring/ring-core      {:mvn/version "1.7.1"}}}
+
+           :master   {:main-opts  ["-m" "figwheel.main" "--build-once" "build/master"]
+                      :extra-deps {compojure/compojure {:mvn/version "1.6.1"}
+                                   ring/ring-core      {:mvn/version "1.7.1"}}}
+
+           ;; useful for testing dev or master builds without figwheel
+           :server   {:main-opts  ["-m" "hubble.server"]
+                      :extra-deps {compojure/compojure {:mvn/version "1.6.1"}
+                                   ring/ring-core      {:mvn/version "1.7.1"}}}
+           :uberjar  {:extra-deps {clj-time/clj-time    {:mvn/version "0.15.2"}
+                                   compojure/compojure  {:mvn/version "1.6.1"}
+                                   ring/ring            {:mvn/version "1.7.1"}
+                                   ring/ring-defaults   {:mvn/version "0.3.2"}
+                                   http-kit/http-kit    {:mvn/version "2.3.0"}
+                                   seancorfield/depstar {:mvn/version "0.3.4"}}}
+           :babashka {:extra-paths ["scripts"]
+                      :extra-deps  {cheshire/cheshire {:mvn/version "5.10.0"}}}}}

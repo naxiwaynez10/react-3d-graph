@@ -1,0 +1,16 @@
+^{:npm {:bundles {"dist/index.bundle.js" "src/js/index.js"}}}
+{
+ :main            hubble.core
+ :open-url        false
+ :output-to       "resources/public/js/main.js"
+ :closure-defines {goog.DEBUG              true
+                   hubble.config/api-url   "https://api.obrizum.io/client-sbx"
+                   hubble.config/media-url "https://media.obrizum.io"
+                   hubble.config/cdn-url   "https://s3-eu-west-1.amazonaws.com/cdn.obrizum"
+                   hubble.config/version   "#BUILD_VERSION#"
+                   hubble.config/cke-upload-url "https://40608.cke-cs.com/easyimage/upload/"
+                   hubble.config/cke-web-socket-url "40608.cke-cs.com/ws"}
+ :optimizations   :advanced
+ :parallel-build  false
+ :pretty-print    false
+ }
